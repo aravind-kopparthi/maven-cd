@@ -27,7 +27,8 @@ pipeline {
         stage('NextTag') {
             steps {
               script {
-                    version = sh (script: 'git describe — tags `git rev-list — tags — max-count=1`',returnStdout: true).trim()
+                    def t = sh (script: 'git rev-list — tags — max-count=1',returnStdout: true).trim()
+                    version = sh (script: '$t',returnStdout: true).trim()
                     
               }
               sh ' echo $version '
