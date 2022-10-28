@@ -4,11 +4,11 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>io.github.cloudbeers</groupId>
-  <artifactId>maven-continuous</artifactId>
+  <artifactId>maven-cd</artifactId>
   <version>1.x-SNAPSHOT</version>
   <packaging>war</packaging>
 
-  <name>maven-continuous Maven Webapp</name>
+  <name>maven-cd Maven Webapp</name>
 
   <scm>
     <connection>scm:git:https://github.com/aravind-kopparthi/maven-cd.git</connection>
