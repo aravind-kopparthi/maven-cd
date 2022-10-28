@@ -31,9 +31,9 @@ pipeline {
                     
                      sh “”” 
                     echo $version
-                    A=”$(echo $version|cut -d ‘.’ -f1)”
-                    B=”$(echo $version|cut -d ‘.’ -f2)”
-                    C=”$(echo $version|cut -d ‘.’ -f3)”
+                    A=”\$(echo $version|cut -d ‘.’ -f1)”
+                    B=”\$(echo $version|cut -d ‘.’ -f2)”
+                    C=”\$(echo $version|cut -d ‘.’ -f3)”
                      if [ $C -gt 8 ]
                      then 
                     if [ $B -gt 8 ]
