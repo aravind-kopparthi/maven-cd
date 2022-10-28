@@ -34,6 +34,7 @@ pipeline {
               script {
                     
                     version = sh (script: 'git describe --tags $(git rev-list --tags --max-count=1)',returnStdout: true).trim()
+                    echo "$version"
                     
               }
               sh ' echo $version '
