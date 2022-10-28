@@ -1,5 +1,11 @@
 pipeline {
-    agent any
+    agent {
+        docker {
+            image 'java8agent:latest'
+            reuseNode true
+        }
+
+    }
     options {
         buildDiscarder logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '1', daysToKeepStr: '', numToKeepStr: '10')
         disableConcurrentBuilds()
@@ -10,9 +16,9 @@ pipeline {
                 not { branch 'master' }
             }
             steps {
-                withMaven(maven:'maven-3', jdk:'java-8', mavenLocalRepo: '.repository') {
+                 
                     sh 'mvn verify'
-                }
+          
             }
         }
         stage('Release') {
