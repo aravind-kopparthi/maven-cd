@@ -6,8 +6,8 @@ pipeline {
     }
 
     environment {
-         String result=’0.0.0';
-     }
+         String result = "0.0.0"
+    }
     options {
         buildDiscarder logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '1', daysToKeepStr: '', numToKeepStr: '10')
         disableConcurrentBuilds()
