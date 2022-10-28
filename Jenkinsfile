@@ -27,12 +27,10 @@ pipeline {
         stage('NextTag') {
             steps {
               script {
-                    version = sh (
-                        script: 'git describe — tags `git rev-list — tags — max-count=1`',
-                        returnStdout: true
-                    ).trim()
+                    version = sh (script: 'git describe — tags `git rev-list — tags — max-count=1`',returnStdout: true).trim()
+                    
                      sh “”” 
-             
+                    echo $version
                     A=”$(echo $version|cut -d ‘.’ -f1)”
                     B=”$(echo $version|cut -d ‘.’ -f2)”
                     C=”$(echo $version|cut -d ‘.’ -f3)”
