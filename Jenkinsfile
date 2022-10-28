@@ -7,6 +7,7 @@ pipeline {
 
     environment {
          String result = "0.0.0"
+         String version = ""
     }
     options {
         buildDiscarder logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '1', daysToKeepStr: '', numToKeepStr: '10')
@@ -31,9 +32,7 @@ pipeline {
                         returnStdout: true
                     ).trim()
                      sh “”” 
-                     
-                  
-                    
+             
                     A=”$(echo $version|cut -d ‘.’ -f1)”
                     B=”$(echo $version|cut -d ‘.’ -f2)”
                     C=”$(echo $version|cut -d ‘.’ -f3)”
