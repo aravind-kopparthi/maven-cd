@@ -33,7 +33,7 @@ pipeline {
                      sh “”” 
                      
                   
-                    #Version to get the latest tag 
+                    
                     A=”$(echo $version|cut -d ‘.’ -f1)”
                     B=”$(echo $version|cut -d ‘.’ -f2)”
                     C=”$(echo $version|cut -d ‘.’ -f3)”
