@@ -31,6 +31,7 @@ pipeline {
                     
               }
               sh ' echo $version '
+            }
         }
         stage('Release') {
             when {
