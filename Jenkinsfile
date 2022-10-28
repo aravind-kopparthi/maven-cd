@@ -14,6 +14,12 @@ pipeline {
         disableConcurrentBuilds()
     }
     stages {
+       stage(‘preparation’){
+         steps {
+            echo “Build Preparation” 
+            checkout scm 
+         } 
+       }
         stage('Build') {
             when {
                 not { branch 'master' }
@@ -27,7 +33,7 @@ pipeline {
         stage('NextTag') {
             steps {
               script {
-                    def t = sh (script: 'git rev-list — tags — max-count=1',returnStdout: true).trim()
+                    def t = sh (script: 'git rev-list --tags master — max-count=1',returnStdout: true).trim()
                     version = sh (script: '$t',returnStdout: true).trim()
                     
               }
