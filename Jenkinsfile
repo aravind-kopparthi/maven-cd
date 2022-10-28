@@ -24,18 +24,13 @@ pipeline {
                 not { branch 'master' }
             }
             steps {
-                 
                     sh 'mvn verify'
-          
             }
         }
         stage('NextTag') {
             steps {
               script {
-                    
                     version = sh (script: 'git describe --tags $(git rev-list --tags --max-count=1)',returnStdout: true).trim()
-                    echo "$version"
-                    
               }
               sh ' echo $version '
             }
@@ -62,7 +57,8 @@ pipeline {
                     // Set the display name to the version so it is easier to see in the UI
                     script { currentBuild.displayName = readFile('VERSION.txt').trim() }
 
-                    // (If using a repository manager with staging support) Close staging repo
+                    // (If using a repository manager with staging support) Close staging repo // pro
+                    /// jfrog promotion 
                 }
                 failure {
                     // Remove the local tag as there is no matching remote tag
