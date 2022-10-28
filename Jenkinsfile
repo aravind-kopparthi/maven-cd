@@ -26,8 +26,7 @@ pipeline {
                 branch 'master'
             }
             steps {
-                    sh 'git config --global user.email "aravind.kopparthi@gmail.com"'
-                    sh 'git config --global user.name "Jenkins CI"'
+                     
                     sh 'mvn release:clean git-timestamp:setup-release release:prepare release:perform'
             
             }
