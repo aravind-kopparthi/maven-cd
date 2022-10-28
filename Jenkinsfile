@@ -1,9 +1,9 @@
 pipeline {
     agent {
-        docker {
-            image 'java8agent:latest'
-            reuseNode true
+        dockerfile {
+            filename 'Dockerfile.java8agent'
         }
+    }
 
     }
     options {
@@ -26,9 +26,9 @@ pipeline {
                 branch 'master'
             }
             steps {
-                withMaven(maven:'maven-3', jdk:'java-8', mavenLocalRepo: '.repository') {
+                 
                     sh 'mvn release:clean git-timestamp:setup-release release:prepare release:perform'
-                }
+            
             }
             post {
                 success {
