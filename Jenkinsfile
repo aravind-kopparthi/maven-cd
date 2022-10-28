@@ -16,8 +16,7 @@ pipeline {
     stages {
        stage(‘preparation’){
          steps {
-            echo “Build Preparation” 
-            checkout scm 
+               checkout scm 
          } 
        }
         stage('Build') {
