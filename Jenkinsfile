@@ -8,6 +8,7 @@ pipeline {
     environment {
          String result = "0.0.0"
          String version = ""
+         NEXT_VERSION = nextVersion()
     }
     options {
         buildDiscarder logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '1', daysToKeepStr: '', numToKeepStr: '10')
@@ -18,6 +19,11 @@ pipeline {
          steps {
                checkout scm 
          } 
+       }
+       stage('NextVersion') {
+            steps {
+                echo "next version = ${NEXT_VERSION}"
+            }
        }
         stage('Build') {
             when {
